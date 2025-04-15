@@ -123,7 +123,7 @@ const ViewMenu = () => {
             zIndex: 1000,
           }}>
             <span onClick={() => navigate('/')} style={{ cursor: 'pointer', color: '#00AEEF' }}>HOME</span>
-            <Link to="/" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>MENU</Link>
+            <Link to="/create" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>MENU</Link>
             <Link to="/login" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>LOGIN</Link>
             <Link to="/signup" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>SIGNUP</Link>
             <a href="#contact" style={{ cursor: 'pointer', color: '#fff', textDecoration: 'none' }}>CONTACT US</a>

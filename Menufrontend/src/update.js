@@ -53,7 +53,7 @@ const EditMenuForm = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:5001/api/menus/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/menus/${id}`,
         formData,
         {
           headers: {
