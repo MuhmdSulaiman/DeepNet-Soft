@@ -19,7 +19,7 @@ const EditMenuForm = () => {
     const fetchMenu = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:4000/api/menus/viewmenu/${id}`, {
+        const response = await axios.get( `${process.env.REACT_APP_API_URL}/api/menus/viewmenu/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

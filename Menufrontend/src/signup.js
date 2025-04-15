@@ -27,7 +27,7 @@ const SignupForm = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:4000/api/user/signupapi', formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/signupapi`, formData);
       setMessage(response.data.message);
     } catch (err) {
       if (err.response) {

@@ -18,7 +18,7 @@ const ViewMenu = () => {
     const fetchMenus = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:4000/api/menus/viewmenu', {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/menus/viewmenu`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setMenus(response.data);

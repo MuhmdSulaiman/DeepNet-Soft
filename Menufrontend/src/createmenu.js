@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import Footer from './footer'; // Make sure `footer.js` has `export default Footer`
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Footer from './footer';
 
 const CreateMenuForm = () => {
   const navigate = useNavigate();
@@ -30,7 +29,8 @@ const CreateMenuForm = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:4000/api/menus/create',
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/menus/create`,
         formData,
         {
           headers: {
@@ -41,9 +41,6 @@ const CreateMenuForm = () => {
 
       setMessage('Menu created successfully!');
       setFormData({ name: '', description: '', price: '', category: 'Food' });
-
-      // Optional: redirect after success
-      // navigate('/view');
     } catch (err) {
       if (err.response?.data?.message) {
         setError(err.response.data.message);
@@ -57,18 +54,16 @@ const CreateMenuForm = () => {
 
   return (
     <>
-      {/* Navigation Header */}
-      <div
+      {/* Header */}
+      <header
         style={{
-          width: '100%',
-          height: '100px',
           backgroundColor: '#121618',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '0 5vw',
+          padding: '0 5%',
+          height: '100px',
           fontFamily: 'Oswald, sans-serif',
-          boxSizing: 'border-box',
           flexWrap: 'wrap',
         }}
       >
@@ -76,55 +71,54 @@ const CreateMenuForm = () => {
           <div
             style={{
               backgroundImage: `url('./logo.png')`,
-              width: '68px',
-              height: '76px',
+              width: '50px',
+              height: '60px',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
             }}
-          ></div>
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1' }}>
-            <div style={{ fontSize: '28px', color: '#00AEEF', fontWeight: '600' }}>
+          />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: '20px', color: '#00AEEF', fontWeight: '600' }}>
               DEEP <span style={{ color: '#fff' }}>NET</span>
             </div>
-            <div style={{ fontSize: '22px', color: '#857878', marginTop: '4px' }}>SOFT</div>
+            <div style={{ fontSize: '16px', color: '#857878' }}>SOFT</div>
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '24px', fontSize: '14px', color: '#fff' }}>
-          <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>HOME</Link>
-          <Link to="/" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>MENU</Link>
-          <Link to="/login" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>LOGIN</Link>
-          <span style={{ cursor: 'pointer' }}>MAKE A RESERVATION</span>
-          <span style={{ cursor: 'pointer' }}>CONTACT US</span>
-        </div>
-      </div>
+        <nav style={{ display: 'flex', gap: '20px', color: '#fff', fontSize: '14px' }}>
+          <Link to="/" style={navLinkStyle}>HOME</Link>
+          <Link to="/create" style={navLinkStyle}>MENU</Link>
+          <Link to="/login" style={navLinkStyle}>LOGIN</Link>
+          <a href="#contact" style={{ color: '#fff', textDecoration: 'none' }}>CONTACT US</a>
+        </nav>
+      </header>
 
-      {/* Background Section */}
+      {/* Form Section with background */}
       <div
         style={{
           backgroundImage: `url('/Rectangle116.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          padding: '80px 0',
-          fontFamily: 'Oswald, sans-serif',
+          padding: '80px 20px',
           display: 'flex',
           justifyContent: 'center',
-          color: '#fff',
+          fontFamily: 'Oswald, sans-serif',
         }}
       >
         <div
           style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
             padding: '40px',
             borderRadius: '10px',
-            width: '500px',
-            boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+            width: '100%',
+            maxWidth: '500px',
+            color: '#fff',
           }}
         >
-          <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Create Menu</h2>
+          <h2 style={{ textAlign: 'center', marginBottom: '20px', fontSize: '28px' }}>Create Menu</h2>
 
-          {message && <p style={{ color: 'lightgreen' }}>{message}</p>}
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {message && <p style={{ color: 'lightgreen', textAlign: 'center' }}>{message}</p>}
+          {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
 
           <form onSubmit={handleSubmit}>
             <input
@@ -172,13 +166,15 @@ const CreateMenuForm = () => {
               type="submit"
               style={{
                 width: '100%',
-                padding: '10px',
+                padding: '12px',
                 backgroundColor: '#00AEEF',
+                color: '#fff',
                 border: 'none',
-                borderRadius: '5px',
+                borderRadius: '6px',
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 marginTop: '10px',
+                fontSize: '16px',
               }}
             >
               Create Menu
@@ -192,13 +188,20 @@ const CreateMenuForm = () => {
   );
 };
 
+// Shared styles
 const inputStyle = {
   width: '100%',
-  padding: '10px',
+  padding: '12px',
   margin: '10px 0',
   borderRadius: '5px',
   border: '1px solid #ccc',
   fontSize: '16px',
+};
+
+const navLinkStyle = {
+  color: '#00AEEF',
+  fontWeight: 'bold',
+  textDecoration: 'none',
 };
 
 export default CreateMenuForm;
