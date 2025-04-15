@@ -101,6 +101,7 @@ const ViewMenu = () => {
             color: '#fff',
             fontSize: '28px',
             cursor: 'pointer',
+            paddingRight:'50px'
           }}
           onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
         >
