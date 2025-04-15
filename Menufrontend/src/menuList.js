@@ -68,7 +68,7 @@ const ViewMenu = () => {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{
-            backgroundImage: `url('./logo.png')`,
+            backgroundImage: `url('./Logo.png')`,
             width: '50px',
             height: '60px',
             backgroundSize: 'contain',
@@ -141,7 +141,7 @@ const ViewMenu = () => {
         color: 'white',
         padding: '40px 20px',
       }}>
-        <img src="./MENU.png" alt="MENU" style={{ maxWidth: '100%' }} />
+        <img src="./menu.png" alt="MENU" style={{ maxWidth: '100%' }} />
         <p style={{
           fontFamily: 'Kelly Slab',
           fontWeight: '400',
