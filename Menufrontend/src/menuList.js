@@ -66,19 +66,21 @@ const ViewMenu = () => {
         position: 'relative',
         width: '100%',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', }}>
           <div style={{
             backgroundImage: `url('./Logo.png')`,
-            width: '50px',
-            height: '60px',
+            width: '86px',
+            height: '76px',
+            top:'60px',
+            left:'168px',
             backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
           }} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ fontSize: '20px', color: '#00AEEF', fontWeight: '600' }}>
+            <div style={{ fontSize: '35px', color: '#00AEEF', fontWeight: '600' }}>
               DEEP <span style={{ color: '#fff' }}>NET</span>
             </div>
-            <div style={{ fontSize: '16px', color: '#857878' }}>SOFT</div>
+            <div style={{ fontSize: '35px', color: '#857878' }}>SOFT</div>
           </div>
           <div >
            {/* Navigation Buttons Section (Right side) */}
