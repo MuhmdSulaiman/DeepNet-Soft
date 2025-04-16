@@ -24,7 +24,7 @@ const Footer = () => {
 
         <div style={boxStyle}>
           <img
-            src="/logo.png"
+            src="/Logo.png"
             alt="Deep Net Soft"
             style={{ height: '60px', marginBottom: '10px' }}
           />
