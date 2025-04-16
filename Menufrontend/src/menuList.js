@@ -268,16 +268,16 @@ const ViewMenu = () => {
           }} />
           <img src="./left-drink.png" alt="cocktail-left" style={{
             position: 'absolute',
-            top: '-60px',
+            top: '-100px',
             left: '-60px',
-            width: '120px',
+            width: '180px',
             zIndex: 0
           }} />
           <img src="./right-drink.png" alt="cocktail-right" style={{
             position: 'absolute',
             bottom: '-40px',
             right: '-60px',
-            width: '120px',
+            width: '180px',
             zIndex: 0
           }} />
         </div>
