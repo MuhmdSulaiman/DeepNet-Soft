@@ -84,13 +84,13 @@ const ViewMenu = () => {
           </div>
           <div >
            {/* Navigation Buttons Section (Right side) */}
-  <div style={{ display: 'flex', gap: '20px', position:'absolute',left:'800px' }}>
-  <Link to="/" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>HOME</Link>
-<Link to="/create" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>MENU</Link>
-<Link to="/login" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>LOGIN</Link>
-<Link to="/signup" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' }}>SIGNUP</Link>
+  <div style={{ display: 'flex', gap: '20px', position:'absolute',left:'800px'}}>
+  <Link to="/" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none', width:'37px',height:'24px',fontSize:'16px'}}>HOME</Link>
+<Link to="/create" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none', width:'36px',height:'24px',fontSize:'16px' }}>MENU</Link>
+<Link to="/login" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none', width:'37px',height:'24px',fontSize:'16px' }}>LOGIN</Link>
+<Link to="/signup" style={{ color: '#00AEEF', fontWeight: 'bold', textDecoration: 'none' , width:'50px',height:'24px',fontSize:'16px'}}>SIGNUP</Link>
 
-    <a href="#contact" style={{ cursor: 'pointer', color: '#fff', textDecoration: 'none' }}>CONTACT US</a>
+    <a href="#contact" style={{ cursor: 'pointer', color: '#fff', textDecoration: 'none' , width:'179px',height:'24px',fontSize:'16px'}}>CONTACT US</a>
   </div>
          </div> 
         </div>
