@@ -142,15 +142,13 @@ router.delete('/:id', verifyToken, async (req, res) => {
 
     // Check if menu has items
     const menuItemsCount = await MenuItem.countDocuments({ menu: req.params.id });
-    if (menuItemsCount > 0) {
-      // Soft delete by setting isActive to false
-      menu.isActive = false;
-      await menu.save();
-      res.json({ message: 'Menu has been deactivated' });
-    } else {
+    if (menuItemsCount === 0) {
       // Hard delete if no items exist
       await Menu.deleteOne({ _id: req.params.id });
       res.json({ message: 'Menu has been deleted' });
+    }
+      else {
+      res.status(400).json({ message: 'Menu cannot be deleted because it has items' });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
